@@ -36,12 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-button {
-	cursor: pointer;
-	background-color: #282c34;
-	color: white;
-	height: 30px;
-	border-radius: 3px;
-	border: 2px solid 
-}
