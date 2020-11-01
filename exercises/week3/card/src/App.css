@@ -1,0 +1,100 @@
+.App {
+  text-align: center;
+}
+
+.card {
+	width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+	border-radius: 3px;
+	background-color: #2f3542;
+	color: #ecf0f1;
+}
+
+.header {
+	display: flex;
+    padding: 10px;
+}
+
+.header-content {
+	flex-grow: 2;
+	margin-top: 0;
+	margin-left: 10px;
+}
+
+.title{
+	font-weight: bold;
+	margin-bottom: 5px;
+	margin-top: 0px;
+}
+
+.date {
+	margin-top: 5px;
+	font-size: 0.8em;
+}
+
+.footer {
+	display: flex;
+	flex-direction: column;
+}
+.icons-container-footer {
+	display: flex;
+}
+
+.left-icons-container-footer {
+	display: flex;
+}
+
+.right-icons-container-footer {
+	display: flex;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+button {
+	border: none;
+    background: none;
+	cursor: pointer;
+	padding:5px;
+	width: 27px;
+	border-radius: 50%;
+	color: white;
+	border: 1px solid #2f3542;
+}
+
+button:hover {
+	background-color: #57606f;
+
+}
+
+button:focus {
+	outline: none;
+	border: 1px solid #57606f;
+}
+
+.img-container {
+	background-image: url('./images/tofu.png');
+	background-size: cover;
+    height: 300px;
+}
+
+.recipe-container {
+	padding: 8px;
+}
+
+.recipe-container p {
+	margin:0;
+}
+
+.icons-container-footer {
+	display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.extended-content-container {
+	padding: 8px;
+}
