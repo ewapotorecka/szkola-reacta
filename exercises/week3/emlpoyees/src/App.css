@@ -1,0 +1,35 @@
+
+.employees-container {
+	border: 2px solid #2d3436;
+	display: flex;
+	margin-left: 35vw;
+	margin-top: 10vh;
+	width: 350px;
+	border-radius: 4px;
+	padding: 10px;
+}
+
+.employee-name, .names-header {
+	border: 2px solid #2d3436;
+	width: 150px;
+	padding: 10px;
+	margin: 2px;
+	border-radius: 2px;
+}
+
+.names-header {
+	font-weight: bold;
+}
+
+.employee-name {
+	cursor: pointer;
+}
+
+.more-info-container {
+	
+	width: 200px;
+	margin: 2px;
+	padding: 10px;
+	border-radius: 2px;
+}
+
