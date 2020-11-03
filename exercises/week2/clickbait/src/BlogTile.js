@@ -1,6 +1,7 @@
 import React from 'react';
 
 function BlogTile( { title, intro } ) {
+	
 	const checkIntroLength = ( intro ) => {
 		if ( intro.length >= 25 ) {
 			return `${intro.substring( 0, 25 )}...` 
