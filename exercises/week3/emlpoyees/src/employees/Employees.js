@@ -6,6 +6,7 @@ function Employees( props ) {
 	const handleClick = element => {
 		setMoreInfo( element.info );
 	}
+	
 
 	return(
 		<div className="employees-container">
