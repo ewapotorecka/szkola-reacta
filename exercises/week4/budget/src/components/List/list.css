@@ -1,0 +1,27 @@
+
+.titles-container {
+	display: flex;
+}
+
+.content {
+	display: flex;
+}
+
+.list-name {
+	width: 200px;
+	border: 1px solid black;
+}
+
+.list-category {
+	width: 200px;
+	border: 1px solid black;
+}
+
+.list-amount {
+	width: 200px;
+	border: 1px solid black;
+}
+
+.title {
+	width: 600px;
+}
