@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import './form.css';
 
 const categories = [ 'groceries', 'car charges', 'shopping', 'home charges', 'bills', 'eating out', 'donation', 'salary' ];
 
@@ -17,8 +18,9 @@ function Form( { onFormSubmit } ) {
 
 	return (
 		<div>
-			 <form onSubmit={ handleSubmit( onSubmit ) }>
-				 <div>
+			 <form onSubmit={ handleSubmit( onSubmit ) } className='form'>
+				 <h4>Add transaction</h4>
+				 <div className='form-element-container'>
 					<label>Transaction type</label>
 					<div>
 						<input
@@ -38,7 +40,7 @@ function Form( { onFormSubmit } ) {
 					</div>
 					{ errors.type && <p>{ errors.type.message }</p> }
 				 </div>
-				<div>
+				<div className='form-element-container'>
 					<label>Transaction name</label>
 					<input
 						type='text'
@@ -46,7 +48,7 @@ function Form( { onFormSubmit } ) {
 						ref={ register( { required: 'Name is required'} ) }/>
 					{ errors.name && <p>{ errors.name.message }</p> }
 				</div>
-				<div>
+				<div className='form-element-container'>
 					<label>Amount</label>
 					<input
 						type='number'
@@ -54,7 +56,7 @@ function Form( { onFormSubmit } ) {
 						ref={ register( { required: 'Amount is required'} ) }/>
 					{ errors.amount && <p>{ errors.amount.message }</p> }
 				</div>
-				<div>
+				<div className='form-element-container'>
 					<label>Category</label>
 					<select
 						name='category'
@@ -68,7 +70,7 @@ function Form( { onFormSubmit } ) {
 							} ) }
 					</select>
 				</div>
-				<div>
+				<div className='form-element-container'>
 					<input type='submit'/>
 				</div>
 			 </form>

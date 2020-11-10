@@ -26,8 +26,10 @@ class List extends React.Component {
 							<div className='content' key={ element.id }>
 								<div className='list-name'>{ element.name }</div>
 								<div className='list-category'>{ element.category }</div>
-								<div className='list-amount'>{ element.amount }</div>
-								<button onClick={ () => this.handleClick( element.id, this.type ) }>Remove</button>
+								<div className='list-amount'>
+									{ element.amount }
+									<button className='remove-button' onClick={ () => this.handleClick( element.id, this.type ) }>Remove</button>
+								</div>
 							</div>
 						);
 					} ) }

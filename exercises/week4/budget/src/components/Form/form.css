@@ -1,0 +1,15 @@
+.form {
+	border: 2px solid black;
+	border-radius: 5px;
+	width: 300px;
+	margin: 10px;
+	padding: 10px;
+}
+
+.form-element-container {
+	margin: 5px;
+}
+
+.form-element-container input, select {
+	margin-left: 5px;
+}

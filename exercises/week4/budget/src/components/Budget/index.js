@@ -2,6 +2,7 @@ import React from 'react';
 import Display from '../Display';
 import Form from '../Form';
 import List from '../List';
+import './budget.css';
 
 
 class Budget extends React.Component {
