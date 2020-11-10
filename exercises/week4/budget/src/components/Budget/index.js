@@ -8,9 +8,9 @@ class Budget extends React.Component {
 	constructor( props ) {
 		super( props );
 		this.state = {
-			expanses: this.props.expanses,
+			expenses: this.props.expenses,
 			incomes: this.props.incomes,
-			budget: this.calculateBudget( this.props.incomes, this.props.expanses )
+			budget: this.calculateBudget( this.props.incomes, this.props.expenses )
 		}
 
 		this.updateState = this.updateState.bind( this );
@@ -19,8 +19,8 @@ class Budget extends React.Component {
 	render() {
 		return (
 			<div>
-				<div className='expanses-income-container'>
-					<List data={ this.state.expanses } type='expanses' onRemove={ this.updateState }/>
+				<div className='expenses-income-container'>
+					<List data={ this.state.expenses } type='expenses' onRemove={ this.updateState }/>
 					<List data={ this.state.incomes } type='incomes' onRemove={ this.updateState }/>
 					<Display value={ this.state.budget }/>
 				</div>
@@ -31,14 +31,14 @@ class Budget extends React.Component {
 		);
 	}
 
-	calculateBudget( incomes, expanses ) {
+	calculateBudget( incomes, expenses ) {
 		let budget = 0;
 
 		for ( const income of incomes ) {
 			budget = budget + income.amount;
 		}
-		for ( const expanse of expanses ) {
-			budget = budget - expanse.amount;
+		for ( const expense of expenses ) {
+			budget = budget - expense.amount;
 		}
 
 		return budget;
@@ -63,7 +63,9 @@ class Budget extends React.Component {
 
 
 		this.setState( { type: data }, () => {
-			this.setState( { budget: this.calculateBudget( this.state.incomes, this.state.expanses ) } );
+			this.setState( { budget: this.calculateBudget( this.state.incomes, this.state.expenses ) } );
+			localStorage.setItem( type, JSON.stringify( data ) );
+			console.log( localStorage );
 
 		} );
 	}

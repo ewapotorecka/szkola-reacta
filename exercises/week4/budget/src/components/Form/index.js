@@ -6,14 +6,15 @@ const categories = [ 'groceries', 'car charges', 'shopping', 'home charges', 'bi
 function Form( { onFormSubmit } ) {
 	const { register, handleSubmit, errors, reset } = useForm({ shouldFocusError: false });
 	const onSubmit = ( data ) => {
-		const id = createId()
+		const id = createId();
+		console.log( id );
 		onFormSubmit( id, data.type, 'add', data );
 		reset();
 	}
 	const createId = () => {
-		let id = 5;
-		return id;
+		return Math.floor( Math.random() * 1000000 );
 	}
+
 	return (
 		<div>
 			 <form onSubmit={ handleSubmit( onSubmit ) }>
@@ -31,9 +32,9 @@ function Form( { onFormSubmit } ) {
 						<input
 							type='radio'
 							name='type'
-							value='expanses'
+							value='expenses'
 							ref={ register( { required: 'Choose the type'} ) }/>
-						<label>Expanse</label>
+						<label>Expense</label>
 					</div>
 					{ errors.type && <p>{ errors.type.message }</p> }
 				 </div>
