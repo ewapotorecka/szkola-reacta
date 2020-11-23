@@ -1,4 +1,8 @@
 [
 	{ "id": 1, "name": "Anna", "lastName": "Kowalska" },
-	{ "id": 2, "name": "Piotr", "lastName": "Nowak" }
+	{ "id": 2, "name": "Piotr", "lastName": "Nowak" },
+	{ "id": 3, "name": "Piotr", "lastName": "Kwiatkowski" },
+	{ "id": 4, "name": "Piotr", "lastName": "Kowalski" },
+	{ "id": 5, "name": "Anna", "lastName": "Nowak" },
+	{ "id": 6, "name": "Anna", "lastName": "Kwiatkowska" }
 ]

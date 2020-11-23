@@ -1,0 +1,32 @@
+.search-container {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+	input {
+		height:16px;
+		padding: 10px;
+		margin: 10px;
+		border-color: #6F1E51;
+   		border-radius: 2px;
+	}
+	button {
+		margin: 10px;
+	}
+
+}
+
+.user-list-container {
+	ul {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	li {
+		list-style: none;
+		border: 2px solid #B53471;
+		width: 30%;
+		padding: 10px;
+		border-radius: 2px;
+		margin: 10px;
+	}
+}

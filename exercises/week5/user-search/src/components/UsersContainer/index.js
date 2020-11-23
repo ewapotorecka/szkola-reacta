@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import UserSearch from '../UserSearch';
+import './users-container.scss';
 
 
 function UsersContainer() {
@@ -31,10 +32,9 @@ function UsersContainer() {
 		return <div className='loading'>Loading</div>
 	} else {
 		return (
-			<div>
+			<div className='users-container'>
 				<UserSearch users={ data }/>
 			</div>
-			
 		)
 	}
 }
