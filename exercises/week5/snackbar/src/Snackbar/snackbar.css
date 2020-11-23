@@ -1,0 +1,65 @@
+.success {
+	background-color: #20bf6b;
+	color: white;
+	width: fit-content;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.error {
+	background-color: #eb3b5a;
+	color: white;
+	width: fit-content;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.warning {
+	background-color: #fa8231;
+	color: white;
+	width: fit-content;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.information {
+	background-color: #4b7bec;
+	color: white;
+	width: fit-content;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.top-left {
+	position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.top-right {
+	position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.bottom-left {
+	position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.bottom-right {
+	position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.top-center {
+	position: absolute;
+    top: 0;
+}
+
+.bottom-center {
+	position: absolute;
+    bottom: 0;
+}
