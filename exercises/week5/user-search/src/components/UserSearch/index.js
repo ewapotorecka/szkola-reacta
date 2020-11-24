@@ -46,7 +46,12 @@ export default function UserSearch( { users, clearInput } ) {
 		<div>
 			<div className='search-container'>
 				<form onSubmit={ handleSubmit }>
-					<input type='text' ref={ searchInput } onChange={ handleChange } value={ inputValue }/>
+					<input
+						type='text'
+						ref={ searchInput }
+						onChange={ handleChange }
+						value={ inputValue }
+						placeholder='Type name or last name. Try Anna.'/>
 				</form>
 				<Button onClick={ handleClick }>Reset</Button>
 			</div>

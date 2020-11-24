@@ -9,7 +9,7 @@ function Snackbar( props ) {
 
 	useEffect( () => {
 		return () => {
-			clearTimeout( timeoutId);
+			clearTimeout( timeoutId );
 		}
 	} );
 
