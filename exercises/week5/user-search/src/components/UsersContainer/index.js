@@ -16,12 +16,12 @@ function UsersContainer() {
 		} } )
 			.then( res => res.json() )
 			.then( result => {
-				setIsLoaded( true );
 				setData( result );
+				setIsLoaded( true );
 			} )
 			.catch( error => {
-				setIsLoaded( true );
 				setError( error );
+				setIsLoaded( true );
 			} );
 
 	}, [] );
@@ -33,7 +33,7 @@ function UsersContainer() {
 	} else {
 		return (
 			<div className='users-container'>
-				<UserSearch users={ data }/>
+				<UserSearch usersData={ data }/>
 			</div>
 		)
 	}

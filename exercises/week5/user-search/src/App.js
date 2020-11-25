@@ -1,11 +1,15 @@
 import UsersContainer from './components/UsersContainer';
+import { BrowserRouter as Router } from "react-router-dom";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-		<UsersContainer/>
-    </div>
+	  <Router>
+		<div className="App">
+			<UsersContainer/>
+		</div>
+	  </Router>
+
   );
 }
 

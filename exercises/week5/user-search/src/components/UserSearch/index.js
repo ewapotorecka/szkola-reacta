@@ -3,18 +3,20 @@ import UsersList from '../UsersList';
 import Button from '../Button';
 import './user-search.scss';
 
-export default function UserSearch( { users, clearInput } ) {
+export default function UserSearch( { usersData, clearInput } ) {
 	const [ inputValue, setInputValue ] = useState('');
-	const [ searchResults, setSearchResults ] = useState();
+	const [ users, setUsers ] = useState( usersData );
 	const searchInput = useRef();
 
 	const handleClick = () => {
 		setInputValue( '');
+		setUsers( usersData );
 	}
 
 	const handleSubmit = event => {
 		event.preventDefault();
 		searchUser( inputValue );
+		setInputValue( '' );
 	};
 
 	const handleChange = () => {
@@ -25,21 +27,14 @@ export default function UserSearch( { users, clearInput } ) {
 	const searchUser = phrase => {
 		const result =[];
 
-		for ( const user of users ) {
-			if ( user.name.toLowerCase() === phrase.toLowerCase() || user.lastName.toLowerCase() === phrase.toLowerCase() ) {
+		for ( const user of usersData ) {
+			if ( user.name.toLowerCase().includes( phrase.toLowerCase() ) || user.lastName.toLowerCase().includes( phrase.toLowerCase() ) ) {
 				result.push( user );
 			}
 		}
 
-		setSearchResults( result );
+		setUsers( result );
 	};
-
-	const renderSearchResults = () => {
-		if ( searchResults ) {
-			return <UsersList users={ searchResults }/>
-		}
-	};
-
 
 
 	return (
@@ -56,7 +51,7 @@ export default function UserSearch( { users, clearInput } ) {
 				<Button onClick={ handleClick }>Reset</Button>
 			</div>
 			<div className='user-list-container'>
-				{ renderSearchResults() }
+				<UsersList users={ users }/>
 			</div>
 		</div>
 
