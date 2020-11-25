@@ -3,7 +3,7 @@ import UsersList from '../UsersList';
 import Button from '../Button';
 import './user-search.scss';
 
-export default function UserSearch( { usersData, clearInput } ) {
+export default function UserSearch( { usersData } ) {
 	const [ inputValue, setInputValue ] = useState('');
 	const [ users, setUsers ] = useState( usersData );
 	const searchInput = useRef();
@@ -21,17 +21,14 @@ export default function UserSearch( { usersData, clearInput } ) {
 
 	const handleChange = () => {
 		setInputValue( searchInput.current.value );
-		clearInput = false;
 	};
 
 	const searchUser = phrase => {
-		const result =[];
+		const result = usersData.filter( ( element ) => {
+			const nameLastName = `${ element.name.toLowerCase() } ${ element.lastName.toLowerCase() }`;
 
-		for ( const user of usersData ) {
-			if ( user.name.toLowerCase().includes( phrase.toLowerCase() ) || user.lastName.toLowerCase().includes( phrase.toLowerCase() ) ) {
-				result.push( user );
-			}
-		}
+			return nameLastName.includes( phrase.toLowerCase() );
+		} );
 
 		setUsers( result );
 	};
@@ -46,7 +43,7 @@ export default function UserSearch( { usersData, clearInput } ) {
 						ref={ searchInput }
 						onChange={ handleChange }
 						value={ inputValue }
-						placeholder='Type name or last name. Try Anna.'/>
+						placeholder='Type name or last name'/>
 				</form>
 				<Button onClick={ handleClick }>Reset</Button>
 			</div>
