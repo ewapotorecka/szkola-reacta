@@ -3,6 +3,7 @@ import Moment from 'react-moment';
 import './user.scss';
 
 export default function User( { userData } ) {
+	
 	return (
 		<div className='user-container'>
 			{ userData.name &&
