@@ -1,8 +1,10 @@
 import React from 'react';
 import Moment from 'react-moment';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 export default function UserDetails({data}) {
 	console.log( data )
+
 
 
 	return (

@@ -2,6 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import User from '../User';
 import './users-list.scss';
+import ReactPlaceholder from 'react-placeholder';
+import "react-placeholder/lib/reactPlaceholder.css";
+
+const placeholderStyles = {
+	border: '2px solid #CDCDCD',
+	borderRadius: '5px',
+	width: '400px',
+	margin: '20px auto',
+	padding: '20px'
+	
+}
 
 export default function UsersList( {handleClick} ) {
 	const [ isLoaded, setIsLoaded ] = useState( false );
@@ -12,8 +23,10 @@ export default function UsersList( {handleClick} ) {
 		fetch( 'https://randomuser.me/api/?results=10')
 			.then( response => response.json() )
 			.then( result => {
-				setData( result.results );
-				setIsLoaded( true );
+				setTimeout( () => {
+					setData( result.results );
+					setIsLoaded( true );
+				},5000 );
 			} )
 			.catch( error => {
 				setError( error );
@@ -22,7 +35,7 @@ export default function UsersList( {handleClick} ) {
 	}, [] );
 
 	if (!isLoaded) {
-		return <div>Loading</div>
+		return <ReactPlaceholder type='media' rows={5} ready={isLoaded} showLoadingAnimation={true} style={ placeholderStyles }></ReactPlaceholder>
 	} else if ( error ) {
 		return <div>{ error.message }</div>
 	} else {
@@ -32,7 +45,7 @@ export default function UsersList( {handleClick} ) {
 									onClick={ () => handleClick( user )  }
 									to={ `/users/${user.login.uuid}` }
 									key={ `${user.login.uuid}` }>
-											<User userData={ user } userId={ user.login.uuid }/>
+										<User userData={ user } userId={ user.login.uuid }/>
 								</Link>
 					} ) }
 				</div>

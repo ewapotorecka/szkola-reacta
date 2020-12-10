@@ -12,7 +12,7 @@ function App() {
     <div className="App">
 		<Router>
 			<Switch>
-  <Route path='/users/:id' render={ props => <UserDetails {...props} data={selectedUserData} />}/>
+  				<Route path='/users/:id' render={ props => <UserDetails {...props} data={selectedUserData} />}/>
 				<Route path='/' exact render={ props => <UsersList {...props} handleClick={ handleClick }/> }/>
 			</Switch>
 		</Router>
