@@ -2,17 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import User from '../User';
 import './users-list.scss';
-import ReactPlaceholder from 'react-placeholder';
-import "react-placeholder/lib/reactPlaceholder.css";
+import Placeholder from '../Placeholder';
 
-const placeholderStyles = {
-	border: '2px solid #CDCDCD',
-	borderRadius: '5px',
-	width: '400px',
-	margin: '20px auto',
-	padding: '20px'
-	
-}
 
 export default function UsersList( {handleClick} ) {
 	const [ isLoaded, setIsLoaded ] = useState( false );
@@ -35,7 +26,7 @@ export default function UsersList( {handleClick} ) {
 	}, [] );
 
 	if (!isLoaded) {
-		return <ReactPlaceholder type='media' rows={5} ready={isLoaded} showLoadingAnimation={true} style={ placeholderStyles }></ReactPlaceholder>
+		return <Placeholder placeholdersNumber={10} isLoaded={ isLoaded }/>
 	} else if ( error ) {
 		return <div>{ error.message }</div>
 	} else {
