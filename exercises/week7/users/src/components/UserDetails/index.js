@@ -1,6 +1,7 @@
 import React from 'react';
 import Moment from 'react-moment';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import './user-details.scss';
 
 export default function UserDetails({data}) {
 	console.log( data )
@@ -35,6 +36,17 @@ export default function UserDetails({data}) {
 			}
 			<div><p>E-mail:</p><p>{ data.email }</p></div>
 			<div><p>Registration date:</p><p><Moment format='MMMM Do YYYY' date={ data.registered.date }/></p></div>
+			<MapContainer center={[data.location.coordinates.latitude, data.location.coordinates.longitude]} zoom={13} scrollWheelZoom={false} >
+				<TileLayer
+					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+				/>
+				<Marker position={[data.location.coordinates.latitude, data.location.coordinates.longitude]}>
+					<Popup>
+					A pretty CSS3 popup. <br /> Easily customizable.
+					</Popup>
+				</Marker>
+			</MapContainer>
 		</div>
 	);
 }
