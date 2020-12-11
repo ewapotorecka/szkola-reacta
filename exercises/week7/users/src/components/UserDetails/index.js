@@ -4,10 +4,6 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import './user-details.scss';
 
 export default function UserDetails({data}) {
-	console.log( data )
-
-
-
 	return (
 		<div className='user-container'>
 			{ data.name &&
