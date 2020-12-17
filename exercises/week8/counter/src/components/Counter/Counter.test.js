@@ -80,16 +80,12 @@ describe( 'Testing input', () => {
 		const wrapper = mount( <Counter/> );
 		const input = wrapper.find( 'input' );
 		const submitButton = wrapper.find( 'button.submit-button' );
-		let displayValue = wrapper.find('Display').props().value;
-
 	
-		input.simulate( 'change', { target: { value: 5 } } );
-		expect.input.prop( 'value' ).toBe( 5 );
-		submitButton.simulate( 'click'  );
+  		input.simulate( 'change', { target: { value: 5 } } );
+		expect(wrapper.find( 'input' ).prop('value')).toBe( 5 );
 
-		displayValue = wrapper.find('Display').props().value;
-
-		expect( displayValue ).toBe( 5 );
+		submitButton.simulate( 'submit' );
+		expect(wrapper.find('Display').props().value).toBe( 5 );
 	} );
 } );
 
