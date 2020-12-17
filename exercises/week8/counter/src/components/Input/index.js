@@ -10,7 +10,7 @@ export default function Input( { onSubmit } ) {
 
 	return (
 		<form onSubmit={ handleSubmit }>
-			<input type='number' onChange={ e => setInputValue( e.target.value )} value={ inputValue } name='input'/>
+			<input type='number' onChange={ e => setInputValue( e.target.value )} value={ inputValue } name='input' className='input'/>
 			<button type='submit' className='submit-button'>Change</button>
 		</form>
 	);
