@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import UsersList from '../components/UsersList';
+import { fetchUsers } from '../../Home/redux';
+import { connect } from 'react-redux';
 
-export default function Users() {
-	const [ users, setUsers ] = useState( [] );
-	const [ isLoaded, setIsLoaded ] = useState( false );
-	const [ error, setError ] = useState( false );
-
+function Users( props ) {
 	useEffect( () => {
-		fetch( 'https://randomuser.me/api/?results=10' )
-			.then( response => response.json() )
-			.then( result => {
-				setUsers( result.results );
-				setIsLoaded( true );
-			} )
-			.catch( error => {
-				setIsLoaded( true );
-				setError( error );
-			} )
+		props.fetchUsers();
 	}, [] );
-	return <div className='users-container'>
-		{ isLoaded && <UsersList data={ users } /> }
-		{ error && <div>{ error.message }</div> }
 
+	return <div className='users-container'>
+		{ props.isError && <div>{ props.isError.message }</div> }
+		{ props.isLoaded && <UsersList data={ props.users.results } /> }
 	</div>
 }
 
+const mapStateToProps = state => ( {
+	users: state.users,
+	isLoaded: state.isLoaded,
+	error: state.isError
+} );
+
+const mapDispatchToProps = dispatch => ( {
+	fetchUsers: () => dispatch( fetchUsers( 10 ) )
+} );
+
+export default connect( mapStateToProps, mapDispatchToProps )( Users );
