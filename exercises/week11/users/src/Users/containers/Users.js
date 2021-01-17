@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react';
 import UsersList from '../components/UsersList';
-import { fetchUsers } from '../../Home/redux';
 import { connect } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchUsers } from '../../Home/redux';
 
 function Users( props ) {
 	useEffect( () => {
-		props.fetchUsers();
+		if ( props.users.length <= 0 ) {
+			props.fetchUsers( 10 );
+		}
 	}, [] );
 
 	return <div className='users-container'>
 		{ props.isError && <div>{ props.isError.message }</div> }
-		{ props.isLoaded && <UsersList data={ props.users.results } /> }
+		{ props.isLoaded && <UsersList data={ props.users } /> }
 	</div>
 }
 
@@ -19,9 +21,8 @@ const mapStateToProps = state => ( {
 	isLoaded: state.isLoaded,
 	error: state.isError
 } );
-
 const mapDispatchToProps = dispatch => ( {
-	fetchUsers: () => dispatch( fetchUsers( 10 ) )
+	fetchUsers: ( number ) => dispatch( fetchUsers( number ) )
 } );
 
 export default connect( mapStateToProps, mapDispatchToProps )( Users );

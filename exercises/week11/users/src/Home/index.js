@@ -1,12 +1,32 @@
 import React from 'react';
 import Button from './components/Button';
+import { fetchUsers, resetUsers, addUser } from '../Home/redux';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-export default function Home() {
+function Home( props ) {
 	return (
-		<div className='home-container'>
-			<Button action={ () => console.log( 'load' ) }>Load</Button>
-			<Button>Reset</Button>
-			<Button>Add</Button>
-		</div>
+		<>
+			<Link to="/users/">Users</Link>
+			<div className='home-container'>
+				<Button action={ () => props.fetchUsers( 10 ) }>Load</Button>
+				<Button action={ () => props.resetUsers() }>Reset</Button>
+				<Button action={ () => props.addUser() }>Add</Button>
+			</div>
+		</>
 	);
 }
+
+const mapStateToProps = state => ( {
+	users: state.users,
+	isLoaded: state.isLoaded,
+	isError: state.isError
+} );
+
+const mapDispatchToProps = dispatch => ( {
+	fetchUsers: ( number ) => dispatch( fetchUsers( number ) ),
+	resetUsers: () => dispatch( resetUsers() ),
+	addUser: () => dispatch( addUser() )
+} );
+
+export default connect( mapStateToProps, mapDispatchToProps )( Home );
